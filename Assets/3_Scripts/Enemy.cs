@@ -9,32 +9,46 @@ public class Enemy : MonoBehaviour
 
     int maxHp;
     int curHp;
+    bool isDead;
 
     [SerializeField] Animator animator;
 
 
     public void Appear(int maxHp)
-    {
-        animator.SetBool("IsLive", true);
-        
+    { 
         this.maxHp = maxHp;
         curHp = maxHp;
+        isDead = false;
+    }
+
+    public void Disappear()
+    {
+        Destroy(this.gameObject);
     }
 
     public void GetHit(int damage)
     {
-        animator.SetTrigger("GetHit");
+        if (isDead) return;
 
         curHp -= damage;
         if (curHp <= 0)
         {
             Dead();
         }
+        else
+        {
+            animator.SetTrigger("GetHit");
+        }
     }
 
     void Dead()
     {
-        animator.SetBool("IsLive", false);
+        isDead = true;
+        animator.SetTrigger("Die");
+
+        GameManager.Manager.UpdateEnemyDie();
+        
+        Destroy(this.gameObject, 2f);
     }
 
 }
