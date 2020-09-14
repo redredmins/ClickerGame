@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bad9703233b8324992cc46615ed3bcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  efcDamagePrefab: {fileID: 4267211964664734920, guid: 050f9603693a0e246ba72ed6d9b12faa,
+    type: 3}
   animator: {fileID: 8593861549089474551}
 --- !u!1001 &8593861549096776343
 PrefabInstance:
@@ -87,10 +89,6 @@ PrefabInstance:
     - target: {fileID: 400006, guid: 1f499d0eded7a4245b0c36149a43da4f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 400006, guid: 1f499d0eded7a4245b0c36149a43da4f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: 1f499d0eded7a4245b0c36149a43da4f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

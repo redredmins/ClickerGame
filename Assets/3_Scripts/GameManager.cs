@@ -24,17 +24,31 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] GameObject enemyPrefab;
     [SerializeField] Transform spawnEnemyPos;
+    [SerializeField] UIManager uiManager;
 
     Enemy curEnemy;
 
+    
     int deadEnemy;
+    int DeadEnemy
+    {
+        set
+        {
+            deadEnemy = value;
+            uiManager.UpdateKillCount(deadEnemy);
+        }
+        get
+        {
+            return deadEnemy;
+        }
+    }
     const float timeForKillEnemy = 5f;
     float curTime;
 
 
     void Start()
     {
-        deadEnemy = 0;
+        DeadEnemy = 0;
         curTime = 0;
 
         player.Init(PlayerPrefs.GetInt("Level", 1), PlayerPrefs.GetInt("EXP", 0));
@@ -43,19 +57,31 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        SpendTime();
+    }
+
+    void SpendTime()
+    {
+        if (curEnemy == null || curEnemy.isDead == true) return;
+
         curTime += Time.deltaTime;
+        uiManager.UpdateTime(timeForKillEnemy, curTime);
+
         if (curTime >= timeForKillEnemy)
         {
             curTime = 0;
 
             // 실패에 대한 처리
             curEnemy.Disappear();
-            
+            Invoke("SpawnEnemy", 1f);
         }
     }
 
     void SpawnEnemy()
     {
+        curTime = 0;
+        uiManager.UpdateTime(timeForKillEnemy, curTime);
+
         GameObject enemyObj = Instantiate(enemyPrefab, spawnEnemyPos);
         curEnemy = enemyObj.GetComponent<Enemy>();
         curEnemy.Appear(10);
@@ -65,7 +91,7 @@ public class GameManager : MonoBehaviour
 
     public void UpdateEnemyDie()
     {
-        deadEnemy += 1;
+        DeadEnemy += 1;
 
         Invoke("SpawnEnemy", 3f);
     }

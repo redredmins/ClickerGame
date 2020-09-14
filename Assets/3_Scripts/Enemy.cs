@@ -7,9 +7,11 @@ public class Enemy : MonoBehaviour
     // 1. MaxHp, curHp
     // 2. Appear(), GetHit(), Dead()
 
+    [SerializeField] GameObject efcDamagePrefab;
+
     int maxHp;
     int curHp;
-    bool isDead;
+    public bool isDead { private set; get; }
 
     [SerializeField] Animator animator;
 
@@ -31,6 +33,10 @@ public class Enemy : MonoBehaviour
         if (isDead) return;
 
         curHp -= damage;
+        GameObject efcObj = Instantiate(efcDamagePrefab, transform);
+        UIEffectText efcText = efcObj.GetComponent<UIEffectText>();
+        efcText.UpdateText((damage * -1).ToString());
+
         if (curHp <= 0)
         {
             Dead();
