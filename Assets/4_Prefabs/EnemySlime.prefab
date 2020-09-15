@@ -50,7 +50,7 @@ MonoBehaviour:
     type: 3}
   animator: {fileID: 8593861549089474551}
   attackAttribute: 2
-  coin: 10
+  baseCoin: 10
 --- !u!1001 &8593861549096776343
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -9,8 +9,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image guageTime;
     [SerializeField] Text txtCoin;
 
+    [Header("Level Up Buttons")]
     [SerializeField] Text txtPlayerLevelInfo;
     [SerializeField] Text txtPlayerLevelUpPrice;
+    [SerializeField] Text txtEnemyLevelInfo;
+    [SerializeField] Text txtEnemyLevelUpPrice;
 
 
     public void UpdateKillCount(int killCount)
@@ -36,6 +39,17 @@ public class UIManager : MonoBehaviour
         txtPlayerLevelInfo.text = info;
 
         txtPlayerLevelUpPrice.text = price.ToString();
+    }
+
+    public void UpdateEnemyLevelUpButton(int price)
+    {
+        //Enemy.Level
+        string info = string.Format("Lv. {0} > <b>{1}</b>\n<size=40>({2}배 추가 획득)</size>",
+                        Enemy.Level, (Enemy.Level + 1), Enemy.Level);
+        
+        txtEnemyLevelInfo.text = info;
+
+        txtEnemyLevelUpPrice.text = price.ToString();
     }
 
 }

@@ -13,7 +13,26 @@ public class Enemy : MonoBehaviour
 
     [Header("enemy info")]
     [SerializeField] AttackAttribute attackAttribute;
-    [SerializeField] int coin;
+    [SerializeField] int baseCoin;
+    static int level;
+    public static int Level
+    {
+        set
+        {
+            level = value;
+            PlayerPrefs.SetInt("Enemy Level", level);
+            Debug.Log("level : " + level);
+        }
+        get
+        {
+            return PlayerPrefs.GetInt("Enemy Level", 1);
+        }
+    }
+    public int Coin
+    {
+        get { return baseCoin * Level; }
+    }
+
     int maxHp;
     int curHp;
     public bool isDead { private set; get; }
@@ -58,7 +77,7 @@ public class Enemy : MonoBehaviour
         animator.SetTrigger("Die");
         Instantiate(efcCoinPrefab, transform);
 
-        GameManager.Manager.UpdateEnemyDie(coin);
+        GameManager.Manager.UpdateEnemyDie(Coin);
         
         Destroy(this.gameObject, 2f);
     }

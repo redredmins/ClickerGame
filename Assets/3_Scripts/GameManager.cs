@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     }
 
     [SerializeField] Player player;
+    [SerializeField] Pet pet;
 
     [SerializeField] GameObject[] enemyPrefabs;
     [SerializeField] Transform spawnEnemyPos;
@@ -67,13 +68,14 @@ public class GameManager : MonoBehaviour
         DeadEnemy = 0;
         curTime = 0;
 
-        player.Init(PlayerPrefs.GetInt("Level", 1), PlayerPrefs.GetInt("EXP", 0));
         SpawnEnemy();
 
         uiManager.UpdatePlayerLevelUpButton(player.Level,
                                             player.damage,
                                             player.GetNextDamage(1),
                                             (player.Level * levelUpPrice));
+
+        uiManager.UpdateEnemyLevelUpButton(Enemy.Level * levelUpPrice);
     }
 
     void Update()
@@ -110,6 +112,7 @@ public class GameManager : MonoBehaviour
         curEnemy.Appear(10);
 
         player.SetTarget(curEnemy);
+        pet.SetTarget(curEnemy);
     }
 
     public void UpdateEnemyDie(int getCoin)
@@ -132,6 +135,18 @@ public class GameManager : MonoBehaviour
                                                 player.damage,
                                                 player.GetNextDamage(upLevel),
                                                 price);
+        }
+    }
+
+    public void UpdateEnemyLevel(int upLevel)
+    {
+        int price = Enemy.Level * levelUpPrice; // 레벨업에 필요한 돈
+        if (Coin >= price)
+        {
+            Coin -= price;
+
+            Enemy.Level += upLevel;
+            uiManager.UpdateEnemyLevelUpButton(price);
         }
     }
 
