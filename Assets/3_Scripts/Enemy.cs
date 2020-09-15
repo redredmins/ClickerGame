@@ -8,12 +8,15 @@ public class Enemy : MonoBehaviour
     // 2. Appear(), GetHit(), Dead()
 
     [SerializeField] GameObject efcDamagePrefab;
+    [SerializeField] GameObject efcCoinPrefab;
+    [SerializeField] Animator animator;
 
+    [Header("enemy info")]
+    [SerializeField] AttackAttribute attackAttribute;
+    [SerializeField] int coin;
     int maxHp;
     int curHp;
     public bool isDead { private set; get; }
-
-    [SerializeField] Animator animator;
 
 
     public void Appear(int maxHp)
@@ -28,11 +31,13 @@ public class Enemy : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    public void GetHit(int damage)
+    public void GetHit(AttackInfo attackInfo)
     {
         if (isDead) return;
 
+        int damage = attackInfo.GetDamage(attackAttribute);
         curHp -= damage;
+
         GameObject efcObj = Instantiate(efcDamagePrefab, transform);
         UIEffectText efcText = efcObj.GetComponent<UIEffectText>();
         efcText.UpdateText((damage * -1).ToString());
@@ -52,7 +57,7 @@ public class Enemy : MonoBehaviour
         isDead = true;
         animator.SetTrigger("Die");
 
-        GameManager.Manager.UpdateEnemyDie();
+        GameManager.Manager.UpdateEnemyDie(coin);
         
         Destroy(this.gameObject, 2f);
     }

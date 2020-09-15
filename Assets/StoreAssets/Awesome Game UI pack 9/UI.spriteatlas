@@ -1,0 +1,146 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: fec8d7530f1baa6499d9556e9c19a559, type: 3}
+    totalSpriteSurfaceArea: 13411695
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 80fcef208d8c10d4db59dca045bcfc03, type: 3}
+  - {fileID: 21300000, guid: be80eb21b61bf0240a8c3489ddf40ef7, type: 3}
+  - {fileID: 21300000, guid: 82082c31e12297d4abf6ade7f0bb1aea, type: 3}
+  - {fileID: 21300000, guid: dd974f71e90123f488131c181e1b8ea2, type: 3}
+  - {fileID: 21300000, guid: bbfb8981dfe261843809434530ec5096, type: 3}
+  - {fileID: 21300000, guid: d832ffa12385c4247a07347664fa198c, type: 3}
+  - {fileID: 21300000, guid: 24990bf1698dbe446a1ecc180684a5bf, type: 3}
+  - {fileID: 21300000, guid: 55ee970271c40f647beeaa8c5591cbd3, type: 3}
+  - {fileID: 21300000, guid: 4d79c8327d36fd149ab0aa24d67f7ab1, type: 3}
+  - {fileID: 21300000, guid: 0a2a34a21c1aad9429bb559886084bfa, type: 3}
+  - {fileID: 21300000, guid: 4f45c643b77d1364cad50848bb10cdf9, type: 3}
+  - {fileID: 21300000, guid: 28f17f83dbabf2640b3084319c573252, type: 3}
+  - {fileID: 21300000, guid: 2ba901445a699f04a82725e244f297e9, type: 3}
+  - {fileID: 21300000, guid: af602c74e7c41fe4e891664dee41c77e, type: 3}
+  - {fileID: 21300000, guid: 7abca594b961c6e47a962694e944b79c, type: 3}
+  - {fileID: 21300000, guid: b1284f94a71a9014fb69d8b02db469a0, type: 3}
+  - {fileID: 21300000, guid: 295b8bc4534f40f45b4f03eb51df35fe, type: 3}
+  - {fileID: 21300000, guid: 4c972dc46031cf147a52cb01792db066, type: 3}
+  - {fileID: 21300000, guid: a8f18705cbfeb964cbaa277466c0b170, type: 3}
+  - {fileID: 21300000, guid: ee017e651e4e3d54ab1bfaed9e12e9c2, type: 3}
+  - {fileID: 21300000, guid: b9a0cce62724ced43a729161948b11a0, type: 3}
+  - {fileID: 21300000, guid: bf5ccfe6d9a6eb8469dedbdcce879e80, type: 3}
+  - {fileID: 21300000, guid: bb1401577503b5c44ac72f4d4d105d7d, type: 3}
+  - {fileID: 21300000, guid: 70d95f578732b734fa5fb0c95d84217c, type: 3}
+  - {fileID: 21300000, guid: 8567f067ac3ab0f4a801dad71c523d6c, type: 3}
+  - {fileID: 21300000, guid: 74cad187828ba6e498cbdcf68f4abcca, type: 3}
+  - {fileID: 21300000, guid: ee8742970863ff2499f834022b9953de, type: 3}
+  - {fileID: 21300000, guid: 2ffe50d70a0fa9246b6172649eadbfb2, type: 3}
+  - {fileID: 21300000, guid: eb75e5b80d6524941bcb595133c0b43f, type: 3}
+  - {fileID: 21300000, guid: 05274cc83077d4f41b650aed043493c3, type: 3}
+  - {fileID: 21300000, guid: 3f32c3d825dcdc2498c3be1fe3eabc0c, type: 3}
+  - {fileID: 21300000, guid: 55341e091d873c24fb1a1f864fd7e4b6, type: 3}
+  - {fileID: 21300000, guid: 7d244859ff7988c4c8aa7e8c933a4354, type: 3}
+  - {fileID: 21300000, guid: 31d5961abfadad4478a441698d756e03, type: 3}
+  - {fileID: 21300000, guid: 207ee23ac9928cd4b953be741e289e3b, type: 3}
+  - {fileID: 21300000, guid: 2c57c9aa371259e4c84635d61e7a1b7b, type: 3}
+  - {fileID: 21300000, guid: ec055fbae651bbc4d9a6ac723430071f, type: 3}
+  - {fileID: 21300000, guid: e67e421bb4415dd45a407305eaf70749, type: 3}
+  - {fileID: 21300000, guid: c38a09db445c2604fb6ac2abe4f25156, type: 3}
+  - {fileID: 21300000, guid: 8c5375fb9cdf31d49ba790de24c3386b, type: 3}
+  - {fileID: 21300000, guid: 5ac2531c28f94b6409ac3639265a380a, type: 3}
+  - {fileID: 21300000, guid: 06289b6d1b13ed74883c0d44ba868003, type: 3}
+  - {fileID: 21300000, guid: 620688dd611351d4ca72766d5d2794e4, type: 3}
+  - {fileID: 21300000, guid: 3ec5e5ed44aeba944927e08863b8bb7a, type: 3}
+  - {fileID: 21300000, guid: 0d0fecfddbfab944698ff42ba4e3b3d8, type: 3}
+  - {fileID: 21300000, guid: f418c73e61bbbb6449f60ff45a323a50, type: 3}
+  - {fileID: 21300000, guid: 2f6e955ec9319b3408b8c5106874df32, type: 3}
+  - {fileID: 21300000, guid: 9200ff7e5ad68254ba633f94e065aafc, type: 3}
+  - {fileID: 21300000, guid: 19132bbe39d19a0489f9b89db331781c, type: 3}
+  - {fileID: 21300000, guid: 6a1c8cce56ae9254b93244ebdefe5fc1, type: 3}
+  - {fileID: 21300000, guid: 9adaff8f3df6e8247af2ec1af36eb370, type: 3}
+  - {fileID: 21300000, guid: 480a309f0a00c944ea09df99f7646ae3, type: 3}
+  - {fileID: 21300000, guid: 99028f9f83cbb3c4586236c7e5115c62, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - multi-ribbion-red
+  - poision-2
+  - Heart
+  - Red
+  - Skull
+  - Green
+  - Coin
+  - Trophy-wing
+  - LIFE-2
+  - Trophy
+  - Lock
+  - multi-ribbion-1
+  - Blank-Star
+  - multi-ribbion-green
+  - Right
+  - Gem
+  - Time
+  - Star-wing
+  - snow-flakes-1
+  - Exler
+  - Exler2
+  - Bomb
+  - smile
+  - poision-1
+  - Ribbion-2
+  - Skull-4
+  - Gift
+  - Heart-2
+  - Skull-2
+  - Ribbion
+  - LIFE-1
+  - Sword
+  - snowflacks-2
+  - Bow
+  - multi-ribbion-blue
+  - Label-2
+  - Blank-Star-2
+  - Book
+  - Sheild
+  - clock-2
+  - Close
+  - Ribbion-3
+  - clock-1
+  - Lock-2
+  - LAbel-1
+  - Star
+  - Star-2
+  - Key
+  - Video
+  - OWL
+  - CASH
+  - Skull-3
+  - lIFE-3
+  m_Tag: UI
+  m_IsVariant: 0

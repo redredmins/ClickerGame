@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] Text txtKillCount;
     [SerializeField] Image guageTime;
+    [SerializeField] Text txtCoin;
 
 
     public void UpdateKillCount(int killCount)
@@ -18,6 +19,11 @@ public class UIManager : MonoBehaviour
     {
         float leftTime = (maxTime - spendTime) / maxTime ; // full로 남아있으면 1
         guageTime.fillAmount = leftTime;
+    }
+
+    public void UpdateCoin(int coin)
+    {
+        txtCoin.text = coin.ToString();
     }
 
 }

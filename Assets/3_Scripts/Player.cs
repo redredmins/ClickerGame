@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
 
     [SerializeField] Animator animator;
 
+    [Header("player info")]
+    [SerializeField] AttackAttribute attackAttribute;
     int level;
     int exp;
     [SerializeField] int power = 3;
@@ -40,6 +42,6 @@ public class Player : MonoBehaviour
         if (target == null) return;
 
         animator.SetTrigger("Attack");
-        target.GetHit(power);
+        target.GetHit(new AttackInfo(attackAttribute, power));
     }
 }
