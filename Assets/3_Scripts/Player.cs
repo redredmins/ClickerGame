@@ -11,22 +11,49 @@ public class Player : MonoBehaviour
 
     [Header("player info")]
     [SerializeField] AttackAttribute attackAttribute;
-    int level;
+
+    private int level;
+    public int Level
+    {
+        private set
+        {
+            level = value;
+            PlayerPrefs.SetInt("Level", level);
+        }
+        get
+        {
+            return level;
+        }
+    }
     int exp;
     [SerializeField] int power = 3;
+    public int damage
+    {
+        get { return power * Level; }
+    }
 
     Enemy target;
 
 
     public void Init(int level, int exp)
     {
-        this.level = level;
+        Level = level;
         this.exp = exp;
     }
 
     public void SetTarget(Enemy enemy)
     {
         target = enemy;
+    }
+
+    public void UpdateLevel(int upLevel)
+    {
+        Level += upLevel;
+    }
+
+    public int GetNextDamage(int addLevel)
+    {
+        return (Level + addLevel) * power;
     }
     
     void Update()
@@ -42,6 +69,6 @@ public class Player : MonoBehaviour
         if (target == null) return;
 
         animator.SetTrigger("Attack");
-        target.GetHit(new AttackInfo(attackAttribute, power));
+        target.GetHit(new AttackInfo(attackAttribute, damage));
     }
 }

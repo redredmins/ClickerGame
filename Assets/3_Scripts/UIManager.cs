@@ -9,6 +9,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image guageTime;
     [SerializeField] Text txtCoin;
 
+    [SerializeField] Text txtPlayerLevelInfo;
+    [SerializeField] Text txtPlayerLevelUpPrice;
+
 
     public void UpdateKillCount(int killCount)
     {
@@ -24,6 +27,15 @@ public class UIManager : MonoBehaviour
     public void UpdateCoin(int coin)
     {
         txtCoin.text = coin.ToString();
+    }
+
+    public void UpdatePlayerLevelUpButton(int curLevel, int curDamage, int nextDamage, int price)
+    {
+        string info = string.Format("Lv. {0} > <b>{1}</b>\n<size=40>(dam : {2} > {3})</size>",
+                        curLevel, (curLevel + 1), curDamage, nextDamage);
+        txtPlayerLevelInfo.text = info;
+
+        txtPlayerLevelUpPrice.text = price.ToString();
     }
 
 }

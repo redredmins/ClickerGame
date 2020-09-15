@@ -58,6 +58,8 @@ public class GameManager : MonoBehaviour
     const float timeForKillEnemy = 5f;
     float curTime;
 
+    const int levelUpPrice = 10;
+
 
     void Start()
     {
@@ -67,6 +69,11 @@ public class GameManager : MonoBehaviour
 
         player.Init(PlayerPrefs.GetInt("Level", 1), PlayerPrefs.GetInt("EXP", 0));
         SpawnEnemy();
+
+        uiManager.UpdatePlayerLevelUpButton(player.Level,
+                                            player.damage,
+                                            player.GetNextDamage(1),
+                                            (player.Level * levelUpPrice));
     }
 
     void Update()
@@ -113,5 +120,27 @@ public class GameManager : MonoBehaviour
         Invoke("SpawnEnemy", 3f);
     }
 
+    public void UpdatePlayerLevel(int upLevel)
+    {
+        int price = player.Level * levelUpPrice;
+        if (Coin >= price)
+        {
+            Coin -= price;
+
+            player.UpdateLevel(upLevel);
+            uiManager.UpdatePlayerLevelUpButton(player.Level,
+                                                player.damage,
+                                                player.GetNextDamage(upLevel),
+                                                price);
+        }
+    }
+
+    void OnGUI()
+    {
+        if (GUI.Button(new Rect(10, 10, 100, 30), "Remove"))
+        {
+            PlayerPrefs.DeleteAll();
+        }
+    }
 
 }

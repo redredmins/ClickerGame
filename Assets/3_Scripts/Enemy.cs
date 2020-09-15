@@ -56,6 +56,7 @@ public class Enemy : MonoBehaviour
     {
         isDead = true;
         animator.SetTrigger("Die");
+        Instantiate(efcCoinPrefab, transform);
 
         GameManager.Manager.UpdateEnemyDie(coin);
         

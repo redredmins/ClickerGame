@@ -46,6 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   efcDamagePrefab: {fileID: 4267211964664734920, guid: 050f9603693a0e246ba72ed6d9b12faa,
     type: 3}
+  efcCoinPrefab: {fileID: 8335873702034674899, guid: 00caee1b8cdba36478a0fc16130ca4cf,
+    type: 3}
   animator: {fileID: 5417385588579711002}
   attackAttribute: 1
   coin: 50
