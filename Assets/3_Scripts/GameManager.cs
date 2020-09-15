@@ -75,6 +75,11 @@ public class GameManager : MonoBehaviour
                                             player.GetNextDamage(1),
                                             (player.Level * levelUpPrice));
 
+        uiManager.UpdatePetLevelUpButton(pet.Level,
+                                            pet.damage,
+                                            pet.GetNextDamage(1),
+                                            pet.Level * levelUpPrice);
+
         uiManager.UpdateEnemyLevelUpButton(Enemy.Level * levelUpPrice);
     }
 
@@ -125,17 +130,39 @@ public class GameManager : MonoBehaviour
 
     public void UpdatePlayerLevel(int upLevel)
     {
-        int price = player.Level * levelUpPrice;
-        if (Coin >= price)
+        if (AttackerLevelUp(player, upLevel) == true)
         {
-            Coin -= price;
-
-            player.UpdateLevel(upLevel);
             uiManager.UpdatePlayerLevelUpButton(player.Level,
                                                 player.damage,
                                                 player.GetNextDamage(upLevel),
-                                                price);
+                                                player.Level * levelUpPrice);
         }
+    }
+
+    public void UpdatePetLevel(int upLevel)
+    {
+        if (AttackerLevelUp(pet, upLevel) == true)
+        {
+            uiManager.UpdatePetLevelUpButton(pet.Level,
+                                            pet.damage,
+                                            pet.GetNextDamage(upLevel),
+                                            pet.Level * levelUpPrice);
+        }
+    }
+
+    bool AttackerLevelUp<T>(T attacker, int upLevel)
+         where T : Attacker
+    {
+        int price = attacker.Level * levelUpPrice;
+        if (Coin >= price)
+        {
+            Coin -= price;
+            attacker.UpdateLevel(upLevel);
+
+            return true;
+        }
+        else
+            return false;
     }
 
     public void UpdateEnemyLevel(int upLevel)

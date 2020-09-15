@@ -14,6 +14,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] Text txtPlayerLevelUpPrice;
     [SerializeField] Text txtEnemyLevelInfo;
     [SerializeField] Text txtEnemyLevelUpPrice;
+    [SerializeField] Text txtPetLevelInfo;
+    [SerializeField] Text txtPetLevelUpPrice;
 
 
     public void UpdateKillCount(int killCount)
@@ -34,11 +36,20 @@ public class UIManager : MonoBehaviour
 
     public void UpdatePlayerLevelUpButton(int curLevel, int curDamage, int nextDamage, int price)
     {
-        string info = string.Format("Lv. {0} > <b>{1}</b>\n<size=40>(dam : {2} > {3})</size>",
-                        curLevel, (curLevel + 1), curDamage, nextDamage);
-        txtPlayerLevelInfo.text = info;
-
+        txtPlayerLevelInfo.text = GetAttackerLevelInfo(curLevel, curDamage, nextDamage);
         txtPlayerLevelUpPrice.text = price.ToString();
+    }
+
+    public void UpdatePetLevelUpButton(int curLevel, int curDamage, int nextDamage, int price)
+    {
+        txtPetLevelInfo.text = GetAttackerLevelInfo(curLevel, curDamage, nextDamage);
+        txtPetLevelUpPrice.text = price.ToString();
+    }
+
+    string GetAttackerLevelInfo(int curLevel, int curDamage, int nextDamage)
+    {
+        return string.Format("Lv. {0} > <b>{1}</b>\n<size=40>(dam : {2} > {3})</size>",
+                        curLevel, (curLevel + 1), curDamage, nextDamage);
     }
 
     public void UpdateEnemyLevelUpButton(int price)
