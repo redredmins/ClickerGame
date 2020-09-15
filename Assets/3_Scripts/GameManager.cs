@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] Player player;
 
-    [SerializeField] GameObject enemyPrefab;
+    [SerializeField] GameObject[] enemyPrefabs;
     [SerializeField] Transform spawnEnemyPos;
     [SerializeField] UIManager uiManager;
 
@@ -82,7 +82,9 @@ public class GameManager : MonoBehaviour
         curTime = 0;
         uiManager.UpdateTime(timeForKillEnemy, curTime);
 
-        GameObject enemyObj = Instantiate(enemyPrefab, spawnEnemyPos);
+        int randomIndex = Random.Range(0, enemyPrefabs.Length);
+
+        GameObject enemyObj = Instantiate(enemyPrefabs[randomIndex], spawnEnemyPos);
         curEnemy = enemyObj.GetComponent<Enemy>();
         curEnemy.Appear(10);
 
