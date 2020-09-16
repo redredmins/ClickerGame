@@ -2,23 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
     // 1. 처치한 적의 수, 적 등장한 이후 지난 시간, 적을 처치하는데 주어진 시간
     // 2. 적 스폰(), 적이 죽었을때 시간 처리(), 총 처치한 적의 수 카운팅()
-
-    private static GameManager manager;
-    public static GameManager Manager
-    {
-        get
-        {
-            if (manager == null)
-            {
-                manager = FindObjectOfType<GameManager>();
-            }
-            return manager;
-        }
-    }
 
     [SerializeField] Player player;
     [SerializeField] Pet pet;
@@ -130,7 +117,7 @@ public class GameManager : MonoBehaviour
 
     public void UpdatePlayerLevel(int upLevel)
     {
-        if (AttackerLevelUp(player, upLevel) == true)
+        if (UpdateAttackerLevel<Player>(player, upLevel))
         {
             uiManager.UpdatePlayerLevelUpButton(player.Level,
                                                 player.damage,
@@ -141,7 +128,7 @@ public class GameManager : MonoBehaviour
 
     public void UpdatePetLevel(int upLevel)
     {
-        if (AttackerLevelUp(pet, upLevel) == true)
+        if (UpdateAttackerLevel<Pet>(pet, upLevel))
         {
             uiManager.UpdatePetLevelUpButton(pet.Level,
                                             pet.damage,
@@ -150,8 +137,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    bool AttackerLevelUp<T>(T attacker, int upLevel)
-         where T : Attacker
+    bool UpdateAttackerLevel<A>(A attacker, int upLevel)
+        where A : Attacker
     {
         int price = attacker.Level * levelUpPrice;
         if (Coin >= price)
@@ -173,6 +160,7 @@ public class GameManager : MonoBehaviour
             Coin -= price;
 
             Enemy.Level += upLevel;
+            price = Enemy.Level * levelUpPrice;
             uiManager.UpdateEnemyLevelUpButton(price);
         }
     }
